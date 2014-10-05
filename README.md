@@ -7,7 +7,7 @@ fsocket.js
 
 ```javascript
 
-var fsocket = require("fsocket");
+var fsocket = require("fsocket.js");
 var FSocketSrv = fsocket.FSocketSrv;
 var srv = new FSocketSrv("127.0.0.1", 9123);
 
@@ -39,7 +39,7 @@ srv.listen(function()
 
 ```javascript
 
-var fsocket = require("fsocket");
+var fsocket = require("fsocket.js");
 var FSocketCli = fsocket.FSocketCli;
 var cli = new FSocketCli("127.0.0.1", 9123);
 // var cli = new FSocketCli(9123);

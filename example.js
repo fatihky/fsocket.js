@@ -6,10 +6,10 @@ var cli = new FSocketCli("127.0.0.1", 9123);
 
 srv.on('connect', function(conn)
 {
-    console.log("yeni bağlantı");
+    console.log("new connection");
     conn.on("frame", function (frame)
     {
-        console.log("[server] yeni frame:", frame);
+        console.log("[server] new frame:", frame);
         this.send("pong");
     });
 
@@ -30,6 +30,6 @@ cli.on('connect', function ()
     this.send("ping");
     this.on("frame", function (frame)
     {
-        console.log("[client] yeni frame:", frame);
+        console.log("[client] new frame:", frame);
     });
 })

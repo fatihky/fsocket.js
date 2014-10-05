@@ -3,6 +3,8 @@ fsocket.js
 
 [fsocket](https://github.com/fatihky/fsocket) javascript implementation
 
+Just run: `npm install git://github.com/fatihky/fsocket.js` for install latest development reelase.
+
 ### Example server:
 
 ```javascript

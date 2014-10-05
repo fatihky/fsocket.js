@@ -13,11 +13,13 @@ var srv = new FSocketSrv("127.0.0.1", 9123);
 
 srv.on('connect', function(conn)
 {
+    var self = this;
     console.log("new connection");
     conn.on("frame", function (frame)
     {
         console.log("[server] new frame:", frame);
-        this.send("pong");
+        //this.send("pong");
+        self.broadast("data received: " + frame.data);
     });
 
     conn.on('disconnect', function()

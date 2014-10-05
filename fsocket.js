@@ -148,6 +148,7 @@ var FSocketSrv = (function(argument)
             var conn = new FSocketConn(c, last_id);
             conn.on('disconnect', conn_on_disconnect);
             self.emit('connect', conn);
+            self.conns.push(conn);
             last_id++;
         }
     
@@ -157,7 +158,7 @@ var FSocketSrv = (function(argument)
     }
     
     util.inherits(Server, emitter);
-    
+
     Server.prototype.listen = function(fn)
     {
         var self = this;
@@ -165,6 +166,14 @@ var FSocketSrv = (function(argument)
         {
             if(typeof fn == "function")
                 fn.apply(self);
+        });
+    };
+    
+    Server.prototype.broadcast = function(data)
+    {
+        this.conns.forEach(function (conn)
+        {
+            conn.send(data);
         });
     };
 
